@@ -1,6 +1,7 @@
 # Ignore artifacts:
 build
 coverage
+.eslintrc.json
 .eslintignore
 .gitignore
 node_modules

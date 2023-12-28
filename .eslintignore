@@ -1,7 +1,7 @@
+*.json
 dist
 public
 node_modules
-eslintrc.json
 constants
 config
 webpack.config.js

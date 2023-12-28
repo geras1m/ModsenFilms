@@ -19,7 +19,12 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ["@svgr/webpack"],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
         use: "file-loader",
       },
     ],
@@ -32,9 +37,14 @@ module.exports = {
     new Dotenv(),
   ],
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".jsx"],
+    extensions: [".*", ".js", ".ts", ".tsx", ".jsx"],
     alias: {
+      "@root": path.resolve(__dirname, "src"),
+      "@assets": path.resolve(__dirname, "src", "assets"),
       "@components": path.resolve(__dirname, "src", "components"),
+      "@hooks": path.resolve(__dirname, "src", "hooks"),
+      "@store": path.resolve(__dirname, "src", "store"),
+      "@app-types": path.resolve(__dirname, "src", "types"),
     },
   },
   devServer: {

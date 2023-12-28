@@ -1,10 +1,14 @@
-import type { FC } from "react";
+import { FC } from "react";
+import { Header } from "@components/Header";
+import { GlobalStyles } from "@components/App/styled";
+import { Provider } from "react-redux";
+import { store } from "@store/store";
 
 export const App: FC = () => {
-  const num: number = 2024;
   return (
-    <h1>
-      <span>hello! {num}</span>
-    </h1>
+    <Provider store={store}>
+      <GlobalStyles />
+      <Header />
+    </Provider>
   );
 };
