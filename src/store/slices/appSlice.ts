@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Theme } from "@app-types/types";
+import { ThemeType } from "@app-types/types";
 
 interface IAppState {
-  theme: Theme;
+  theme: ThemeType;
 }
 
 const initialState: IAppState = {
@@ -13,7 +13,7 @@ export const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    setTheme: (state, action: PayloadAction<Theme>) => {
+    setTheme: (state, action: PayloadAction<ThemeType>) => {
       state.theme = action.payload;
     },
   },
