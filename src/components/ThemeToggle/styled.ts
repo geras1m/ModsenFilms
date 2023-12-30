@@ -25,7 +25,7 @@ export const ToggleWrapper = styled.button`
   }
 
   &:focus {
-    box-shadow: 0 0 10px 1px rgb(96, 119, 176);
+    outline: 2px solid #a4a4a4;
   }
 `;
 

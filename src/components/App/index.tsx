@@ -5,6 +5,8 @@ import { ThemeProvider } from "styled-components";
 import { useAppSelector } from "@hooks/reduxHooks";
 import { ThemeValue } from "@app-types/types";
 import { FilterBar } from "@components/FilterBar";
+import { Footer } from "@components/Footer";
+import { MoviesList } from "@components/MoviesList";
 
 export const App: FC = () => {
   const { theme } = useAppSelector((store) => store.app);
@@ -14,6 +16,8 @@ export const App: FC = () => {
       <GlobalStyles />
       <Header />
       <FilterBar />
+      <MoviesList />
+      <Footer />
     </ThemeProvider>
   );
 };

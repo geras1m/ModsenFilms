@@ -12,7 +12,7 @@ export const FilterBar = () => {
       <FilterBarContainer>
         <FilterBarBody>
           {genres.map((genre) => (
-            <FilterItem key={genre.id}>{genre.value}</FilterItem>
+            <FilterItem key={genre.id}>{genre.name}</FilterItem>
           ))}
         </FilterBarBody>
       </FilterBarContainer>

@@ -41,8 +41,14 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Roboto", sans-serif;
   }
   
-body{
-  transition: .3s ease;
-  background-color: ${({ theme }) => theme.backgroundColor};
-}
+  body {
+    transition: .3s ease;
+    background-color: ${({ theme }) => theme.backgroundColor};
+  }
+  
+  #root{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 `;
