@@ -15,13 +15,14 @@ import { parseGenres } from "@root/utils/parseGenres";
 
 interface IMovieCardProps {
   movieData: IMovie;
+  onClick: () => void;
 }
 
-export const MovieCard: FC<IMovieCardProps> = ({ movieData }) => {
+export const MovieCard: FC<IMovieCardProps> = ({ movieData, onClick }) => {
   const { title, poster_path, backdrop_path, release_date, genre_ids } = movieData;
 
   return (
-    <MovieCardContainer>
+    <MovieCardContainer onClick={onClick}>
       <MoviePosterWrapper>
         <MoviePoster src={backdrop_path} />
       </MoviePosterWrapper>

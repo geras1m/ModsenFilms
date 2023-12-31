@@ -5,6 +5,11 @@ export enum ThemeValue {
   dark = "dark",
 }
 
+export enum ImgSizes {
+  poster = "w500",
+  avatar = "w92",
+}
+
 export interface IGenre {
   id: number;
   name: string;
@@ -32,4 +37,27 @@ export interface IMovieResponse {
   results: IMovie[];
   total_pages: number;
   total_results: number;
+}
+
+export interface IVideo {
+  iso_639_1: string;
+  iso_3166_1: string;
+  name: string;
+  key: string;
+  site: string;
+  size: number;
+  type: string;
+  official: boolean;
+  published_at: string;
+  id: string;
+}
+
+export interface IVideoResponse {
+  id: number;
+  results: IVideo[];
+}
+
+export enum VideoType {
+  "Trailer" = "Trailer",
+  "Teaser" = "Teaser",
 }

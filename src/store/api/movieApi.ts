@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IMovieResponse } from "@app-types/types";
+import { IMovieResponse, IVideoResponse } from "@app-types/types";
 import { languageUS } from "@root/constants/constants";
 
 export const movieApi = createApi({
@@ -21,7 +21,14 @@ export const movieApi = createApi({
         params: { page, language: languageUS },
       }),
     }),
+    getVideo: builder.query<IVideoResponse, { videoId: number }>({
+      query: ({ videoId }) => ({
+        url: `movie/${videoId}/videos`,
+        method: "GET",
+        params: { language: languageUS },
+      }),
+    }),
   }),
 });
 
-export const { useGetMoviesQuery } = movieApi;
+export const { useGetMoviesQuery, useGetVideoQuery } = movieApi;

@@ -110,4 +110,8 @@ export const allGenres: IGenre[] = [
   },
 ];
 
+export const baseYoutubeUrl: string = "https://www.youtube.com/embed/";
+
+export const baseImgUrl: string = "https://image.tmdb.org/t/p/";
+
 export const languageUS: string = "en-US";

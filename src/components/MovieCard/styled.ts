@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { ImgSizes } from "@app-types/types";
+import { baseImgUrl } from "@root/constants/constants";
 
 export const MovieCardContainer = styled.article`
   width: 100%;
@@ -26,12 +28,17 @@ export const MoviePosterWrapper = styled.div`
 `;
 
 export const MoviePoster = styled.img.attrs(({ src }) => ({
-  src: "https://image.tmdb.org/t/p/w500" + src,
+  src: `${baseImgUrl}${ImgSizes.poster}${src}`,
   alt: "Movie poster",
 }))`
   width: 100%;
   height: 186px;
   object-fit: cover;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const Information = styled.div`
@@ -39,15 +46,16 @@ export const Information = styled.div`
   column-gap: 12px;
 `;
 
+// Вынести url и размеры картинок в константы
+
 export const Avatar = styled.img.attrs(({ src }) => ({
-  src: "https://image.tmdb.org/t/p/w92" + src,
-  alt: "Movie poster",
+  src: `${baseImgUrl}${ImgSizes.avatar}${src}`,
+  alt: "Avatar",
 }))`
   flex: 0 0 36px;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid black;
   object-fit: cover;
 `;
 
