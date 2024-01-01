@@ -61,3 +61,7 @@ export enum VideoType {
   "Trailer" = "Trailer",
   "Teaser" = "Teaser",
 }
+
+export enum VideoSite {
+  "YouTube" = "YouTube",
+}

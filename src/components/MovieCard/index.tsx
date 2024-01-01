@@ -8,30 +8,47 @@ import {
   Name,
   Text,
 } from "@components/MovieCard/styled";
-import { IMovie } from "@app-types/types";
+import { ImgSizes, IMovie } from "@app-types/types";
 import { FC } from "react";
 import { parseYearFromDate } from "@root/utils/parseYearFromDate";
 import { parseGenres } from "@root/utils/parseGenres";
+import PosterNotFoundImg from "@assets/images/PosterNotFound.jpg";
+import DefaultAvatarImg from "@assets/images/DefaultAvatar.png";
+import { baseImgUrl } from "@root/constants/constants";
 
 interface IMovieCardProps {
   movieData: IMovie;
+  isLoading: boolean;
   onClick: () => void;
 }
 
 export const MovieCard: FC<IMovieCardProps> = ({ movieData, onClick }) => {
-  const { title, poster_path, backdrop_path, release_date, genre_ids } = movieData;
+  const {
+    title,
+    poster_path: iconPath,
+    backdrop_path: posterPath,
+    release_date: date,
+    genre_ids: genreIDs,
+  } = movieData;
+
+  const posterImgUrl = posterPath
+    ? baseImgUrl + ImgSizes.poster + posterPath
+    : PosterNotFoundImg;
+  const avatarImgUrl = iconPath
+    ? baseImgUrl + ImgSizes.poster + iconPath
+    : DefaultAvatarImg;
 
   return (
     <MovieCardContainer onClick={onClick}>
       <MoviePosterWrapper>
-        <MoviePoster src={backdrop_path} />
+        <MoviePoster src={posterImgUrl} />
       </MoviePosterWrapper>
       <Information>
-        <Avatar src={poster_path} />
+        <Avatar src={avatarImgUrl} />
         <Description>
           <Name>{title}</Name>
           <Text>
-            {parseGenres(genre_ids)} • {parseYearFromDate(release_date)}
+            {parseGenres(genreIDs)} • {parseYearFromDate(date)}
           </Text>
         </Description>
       </Information>

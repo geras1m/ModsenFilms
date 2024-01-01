@@ -11,6 +11,7 @@ export const VideoModalBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 `;
 
 export const VideoContainer = styled.div`
@@ -26,10 +27,16 @@ export const Video = styled.iframe.attrs<{ src: string }>(({ src }) => ({
   src,
   width: "100%",
   height: "100%",
-  allow:
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share",
+  allow: "accelerometer; autoplay *; clipboard-write; encrypted-media;",
   allowFullScreen: true,
 }))``;
+
+//TODO Посмотреть что значат все эти allow: "accelerometer; autoplay *; clipboard-write; encrypted-media;", и "?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1"
+
+export const Text = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+`;
 
 export const ClosesModalBtn = styled.button`
   width: 40px;
@@ -44,7 +51,7 @@ export const ClosesModalBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 
   &:hover {
     background-color: rgb(175 175 175);

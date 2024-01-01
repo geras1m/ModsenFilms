@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IMovieResponse, IVideoResponse } from "@app-types/types";
 import { languageUS } from "@root/constants/constants";
 
+//TODO вынести ключ в env
+
 export const movieApi = createApi({
   reducerPath: "movieApi",
   keepUnusedDataFor: 120,

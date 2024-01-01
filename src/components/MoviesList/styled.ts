@@ -7,6 +7,7 @@ export const MoviesListBox = styled.main`
 
 export const MoviesListContainer = styled.section`
   width: 100%;
+  height: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding-top: 28px;
@@ -17,27 +18,11 @@ export const MoviesListContainer = styled.section`
 `;
 
 export const MovieListContent = styled.div`
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   transition: 0.3s ease;
   grid-gap: 30px 20px;
-`;
-
-export const ShowMoreBtn = styled.button`
-  font-size: 22px;
-  font-weight: bold;
-  padding: 14px 35px;
-  border-radius: 10px;
-  border: none;
-  color: ${Color.WHITE};
-  background-color: ${Color.ORANGE};
-  margin-top: 37px;
-  cursor: pointer;
-  opacity: 0.8;
-  transition: 0.2s ease;
-
-  &:hover {
-    opacity: 1;
-  }
 `;

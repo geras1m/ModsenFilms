@@ -28,7 +28,7 @@ export const MoviePosterWrapper = styled.div`
 `;
 
 export const MoviePoster = styled.img.attrs(({ src }) => ({
-  src: `${baseImgUrl}${ImgSizes.poster}${src}`,
+  src: `${src}`,
   alt: "Movie poster",
 }))`
   width: 100%;
@@ -46,10 +46,8 @@ export const Information = styled.div`
   column-gap: 12px;
 `;
 
-// Вынести url и размеры картинок в константы
-
 export const Avatar = styled.img.attrs(({ src }) => ({
-  src: `${baseImgUrl}${ImgSizes.avatar}${src}`,
+  src: `${src}`,
   alt: "Avatar",
 }))`
   flex: 0 0 36px;
