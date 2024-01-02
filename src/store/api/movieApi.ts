@@ -3,6 +3,7 @@ import { IMovieResponse, IVideoResponse } from "@app-types/types";
 import { languageUS } from "@root/constants/constants";
 
 //TODO вынести ключ в env
+//TODO error boundary and genres
 
 export const movieApi = createApi({
   reducerPath: "movieApi",
@@ -16,11 +17,11 @@ export const movieApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getMovies: builder.query<IMovieResponse, { page: number }>({
-      query: ({ page }) => ({
-        url: "/movie/popular",
+    getMovies: builder.query<IMovieResponse, { page: number; genre?: string }>({
+      query: ({ page, genre = "" }) => ({
+        url: "/discover/movie",
         method: "GET",
-        params: { page, language: languageUS },
+        params: { page, language: languageUS, with_genres: genre },
       }),
     }),
     getVideo: builder.query<IVideoResponse, { videoId: number }>({

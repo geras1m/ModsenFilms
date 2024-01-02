@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { baseYoutubeUrl, youtubeParams } from "@root/constants/constants";
 import { setIsModalOpened } from "@store/slices/movieSlice";
 import { Spinner } from "@components/Spinner";
-import { findTrailerFromData } from "@root/utils/findTrailerFromData";
 import CrossImg from "@assets/icons/Cross.svg";
+import { findTrailerOrTeaserFromData } from "@root/utils/findTrailerOrTeaserFromData";
 
 export const VideoModal = () => {
   const [youtubeKey, setYoutubeSrc] = useState<string | undefined>("");
@@ -15,14 +15,14 @@ export const VideoModal = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (data) {
-      setYoutubeSrc(findTrailerFromData(data.results));
-    }
+    data && setYoutubeSrc(findTrailerOrTeaserFromData(data.results));
   }, [data]);
 
   const closeModal = () => {
     dispatch(setIsModalOpened(false));
   };
+
+  //TODO: запретить скролл
 
   return (
     isModalOpened && (

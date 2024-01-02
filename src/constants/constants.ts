@@ -1,33 +1,42 @@
 import { IGenre } from "@app-types/types";
 
+export const moviesPerPage = 20;
+
 export const genres: IGenre[] = [
   {
     id: 1,
     name: "All",
+    genreId: "",
   },
   {
     id: 28,
     name: "action",
+    genreId: "28",
   },
   {
     id: 18,
     name: "drama",
+    genreId: "18",
   },
   {
     id: 80,
     name: "crime",
+    genreId: "80",
   },
   {
     id: 10749,
     name: "romantic",
+    genreId: "10749",
   },
   {
     id: 27,
     name: "horror",
+    genreId: "27",
   },
   {
     id: 99,
     name: "documentary",
+    genreId: "99",
   },
 ];
 
@@ -111,8 +120,7 @@ export const allGenres: IGenre[] = [
 ];
 
 export const baseYoutubeUrl: string = "https://www.youtube.com/embed/";
-export const youtubeParams: string =
-  "?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1";
+export const youtubeParams: string = "?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1";
 
 export const baseImgUrl: string = "https://image.tmdb.org/t/p/";
 

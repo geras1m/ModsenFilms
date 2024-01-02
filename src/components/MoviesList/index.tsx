@@ -3,33 +3,33 @@ import { MovieCard } from "@components/MovieCard";
 import { useGetMoviesQuery } from "@store/api/movieApi";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { useEffect } from "react";
-import { addMovies, setVideoId } from "@store/slices/movieSlice";
+import { setMovies, setVideoId } from "@store/slices/movieSlice";
 import { Skeleton } from "@components/Skeleton";
 import { ShowMoreBtn } from "@components/ShowMoreBtn";
+import { moviesPerPage } from "@root/constants/constants";
 
 export const MoviesList = () => {
   const dispatch = useAppDispatch();
-  const { movies, page } = useAppSelector((store) => store.movie);
-  const { data, isFetching } = useGetMoviesQuery({ page });
-
-  //{skip: boolean}
+  const { movies, page, genreId } = useAppSelector((store) => store.movie);
+  const {
+    data: moviesByGenre,
+    isFetching: isFetchingByGenre,
+    isSuccess: isSuccessByGenre,
+  } = useGetMoviesQuery({ page, genre: genreId }, { skip: false });
 
   useEffect(() => {
-    if (data) {
-      dispatch(addMovies(data.results));
+    if (moviesByGenre && isSuccessByGenre) {
+      dispatch(setMovies(moviesByGenre.results));
     }
-  }, [data]);
+  }, [moviesByGenre, genreId]);
 
   const setVideoIdToState = (videoId: number) => {
     dispatch(setVideoId(videoId));
   };
 
-  //DONE: 1) вынести логику дозагрузки и кнопку в отдельный компонент
-  //DONE: 2) Сделать отображение скелетона
-  //DONE: 3) свойство key для ютуба может быть undefined
-  //Done: 4) свойство для постеров может быть undefined
+  const isLoading = isFetchingByGenre;
 
-  const skeletons = [...new Array(20).fill("")].map((_, index) => <Skeleton key={index} />);
+  const skeletons = [...new Array(moviesPerPage).fill("")].map((_, index) => <Skeleton key={index} />);
 
   const movieCards =
     movies.length !== 0 &&
@@ -37,7 +37,7 @@ export const MoviesList = () => {
       <MovieCard
         key={index}
         movieData={movie}
-        isLoading={isFetching}
+        isLoading={isLoading}
         onClick={() => setVideoIdToState(movie.id)}
       />
     ));
@@ -47,9 +47,9 @@ export const MoviesList = () => {
       <MoviesListContainer>
         <MovieListContent>
           {movieCards}
-          {isFetching && skeletons}
+          {isLoading && skeletons}
         </MovieListContent>
-        <ShowMoreBtn />
+        <ShowMoreBtn isDisabled={isLoading} />
       </MoviesListContainer>
     </MoviesListBox>
   );

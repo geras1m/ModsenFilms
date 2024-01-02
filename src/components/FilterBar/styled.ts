@@ -20,7 +20,7 @@ export const FilterBarBody = styled.div`
   padding: 12px 0;
 `;
 
-export const FilterItem = styled.button`
+export const FilterItem = styled.button<{ selected: boolean }>`
   height: 30px;
   padding: 7px 21px;
   border: 1px solid rgba(196, 196, 196, 1);
@@ -29,12 +29,17 @@ export const FilterItem = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${({ theme }) => theme.textColor};
-  background-color: ${({ theme }) => theme.backgroundColorGenre};
+  color: ${({ selected, theme }) => (selected ? "white" : theme.textColor)};
+  background-color: ${({ selected, theme }) => (selected ? "black" : theme.backgroundColorGenre)};
   cursor: pointer;
   transition: 0.3s ease;
 
   &:hover {
     background-color: #969696;
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: black;
   }
 `;

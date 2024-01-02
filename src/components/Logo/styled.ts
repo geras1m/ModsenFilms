@@ -7,6 +7,12 @@ export const LogoContainer = styled.div`
   column-gap: 6px;
   max-width: 144px;
   height: 21px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 `;
 
 export const LogoText = styled.h1`

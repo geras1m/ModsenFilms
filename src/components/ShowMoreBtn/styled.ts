@@ -17,4 +17,8 @@ export const Button = styled.button`
   &:hover {
     opacity: 1;
   }
+
+  &:disabled {
+    background-color: ${({ disabled }) => (disabled ? "grey" : Color.ORANGE)};
+  }
 `;

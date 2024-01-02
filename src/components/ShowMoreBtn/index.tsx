@@ -2,7 +2,11 @@ import { setPage } from "@store/slices/movieSlice";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { Button } from "@components/ShowMoreBtn/styled";
 
-export const ShowMoreBtn = () => {
+interface IShowMoreBtn {
+  isDisabled: boolean;
+}
+
+export const ShowMoreBtn = ({ isDisabled }: IShowMoreBtn) => {
   const dispatch = useAppDispatch();
   const { page } = useAppSelector((store) => store.movie);
 
@@ -10,5 +14,9 @@ export const ShowMoreBtn = () => {
     dispatch(setPage(page + 1));
   };
 
-  return <Button onClick={loadMoreMovies}>Show More</Button>;
+  return (
+    <Button disabled={isDisabled} onClick={loadMoreMovies}>
+      Show More
+    </Button>
+  );
 };

@@ -13,6 +13,7 @@ export enum ImgSizes {
 export interface IGenre {
   id: number;
   name: string;
+  genreId?: string;
 }
 
 export interface IMovie {
@@ -58,10 +59,10 @@ export interface IVideoResponse {
 }
 
 export enum VideoType {
-  "Trailer" = "Trailer",
-  "Teaser" = "Teaser",
+  Trailer = "Trailer",
+  Teaser = "Teaser",
 }
 
 export enum VideoSite {
-  "YouTube" = "YouTube",
+  YouTube = "YouTube",
 }

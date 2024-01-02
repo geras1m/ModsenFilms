@@ -1,8 +1,8 @@
 import { IVideo, VideoSite, VideoType } from "@app-types/types";
 
-type findTrailerFromDataType = (dataVideos: IVideo[]) => string | undefined;
+type findTrailerOrTeaserFromDataType = (dataVideos: IVideo[]) => string | undefined;
 
-export const findTrailerFromData: findTrailerFromDataType = (dataVideos) => {
+export const findTrailerOrTeaserFromData: findTrailerOrTeaserFromDataType = (dataVideos) => {
   if (dataVideos.length === 0) {
     return undefined;
   }
