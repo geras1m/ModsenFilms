@@ -6,6 +6,8 @@ interface IShowMoreBtn {
   isDisabled: boolean;
 }
 
+// TODO скрывать кнопку при ненайденых фильмах
+
 export const ShowMoreBtn = ({ isDisabled }: IShowMoreBtn) => {
   const dispatch = useAppDispatch();
   const { page } = useAppSelector((store) => store.movie);

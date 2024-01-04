@@ -7,6 +7,7 @@ import { setMovies, setVideoId } from "@store/slices/movieSlice";
 import { Skeleton } from "@components/Skeleton";
 import { ShowMoreBtn } from "@components/ShowMoreBtn";
 import { moviesPerPage } from "@root/constants/constants";
+import { setIsVideoModalOpen } from "@store/slices/appSlice";
 
 export const MoviesList = () => {
   const dispatch = useAppDispatch();
@@ -18,13 +19,12 @@ export const MoviesList = () => {
   } = useGetMoviesQuery({ page, genre: genreId }, { skip: false });
 
   useEffect(() => {
-    if (moviesByGenre && isSuccessByGenre) {
-      dispatch(setMovies(moviesByGenre.results));
-    }
+    moviesByGenre && isSuccessByGenre && dispatch(setMovies(moviesByGenre.results));
   }, [moviesByGenre, genreId]);
 
   const setVideoIdToState = (videoId: number) => {
     dispatch(setVideoId(videoId));
+    dispatch(setIsVideoModalOpen(true));
   };
 
   const isLoading = isFetchingByGenre;

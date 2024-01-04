@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { ImgSizes } from "@app-types/types";
-import { baseImgUrl } from "@root/constants/constants";
 
 export const MovieCardContainer = styled.article`
   width: 100%;

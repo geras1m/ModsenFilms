@@ -120,8 +120,11 @@ export const allGenres: IGenre[] = [
 ];
 
 export const baseYoutubeUrl: string = "https://www.youtube.com/embed/";
+
 export const youtubeParams: string = "?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1";
 
 export const baseImgUrl: string = "https://image.tmdb.org/t/p/";
 
 export const languageUS: string = "en-US";
+
+export const minimumValueLength: number = 1;

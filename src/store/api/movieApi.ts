@@ -1,19 +1,19 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IMovieResponse, IVideoResponse } from "@app-types/types";
 import { languageUS } from "@root/constants/constants";
+import * as process from "process";
 
-//TODO вынести ключ в env
-//TODO error boundary and genres
+const APP_AUTH_KEY = process.env.APP_AUTH_KEY;
+const APP_BASIC_URL = process.env.APP_BASIC_URL;
 
 export const movieApi = createApi({
   reducerPath: "movieApi",
   keepUnusedDataFor: 120,
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.themoviedb.org/3",
+    baseUrl: APP_BASIC_URL,
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjU5ZDM2M2UwZjk4NmM3M2UxMjBmNjk0MDE1ZjI2MiIsInN1YiI6IjY1OGZlMDNmZjVmMWM1NzY5MDAwN2M4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dJ2Sqy7Qz-8i5Fm2AzbAhrq5h9sxFaXJDgHALdqWKkM",
+      Authorization: `Bearer ${APP_AUTH_KEY}`,
     },
   }),
   endpoints: (builder) => ({
@@ -31,7 +31,14 @@ export const movieApi = createApi({
         params: { language: languageUS },
       }),
     }),
+    findMoviesByTitle: builder.query<IMovieResponse, { title: string; page?: number }>({
+      query: ({ title, page = 1 }) => ({
+        url: "search/movie",
+        method: "GET",
+        params: { query: title, language: languageUS, page },
+      }),
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetVideoQuery } = movieApi;
+export const { useGetMoviesQuery, useGetVideoQuery, useFindMoviesByTitleQuery } = movieApi;

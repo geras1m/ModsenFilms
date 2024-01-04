@@ -31,12 +31,8 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, onClick }) => {
     genre_ids: genreIDs,
   } = movieData;
 
-  const posterImgUrl = posterPath
-    ? baseImgUrl + ImgSizes.poster + posterPath
-    : PosterNotFoundImg;
-  const avatarImgUrl = iconPath
-    ? baseImgUrl + ImgSizes.poster + iconPath
-    : DefaultAvatarImg;
+  const posterImgUrl = posterPath ? baseImgUrl + ImgSizes.poster + posterPath : PosterNotFoundImg;
+  const avatarImgUrl = iconPath ? baseImgUrl + ImgSizes.avatar + iconPath : DefaultAvatarImg;
 
   return (
     <MovieCardContainer onClick={onClick}>

@@ -5,7 +5,6 @@ interface IMovieState {
   movies: IMovie[] | [];
   page: number;
   videoId: number;
-  isModalOpened: boolean;
   genreId: string;
 }
 
@@ -13,7 +12,6 @@ const initialState: IMovieState = {
   movies: [],
   page: 1,
   videoId: 0,
-  isModalOpened: false,
   genreId: "",
 };
 
@@ -29,10 +27,6 @@ export const appSlice = createSlice({
     },
     setVideoId: (state, action: PayloadAction<number>) => {
       state.videoId = action.payload;
-      state.isModalOpened = true;
-    },
-    setIsModalOpened: (state, action: PayloadAction<boolean>) => {
-      state.isModalOpened = action.payload;
     },
     setGenreId: (state, action: PayloadAction<string>) => {
       state.genreId = action.payload;
@@ -42,5 +36,5 @@ export const appSlice = createSlice({
   },
 });
 
-export const { setMovies, setPage, setVideoId, setIsModalOpened, setGenreId } = appSlice.actions;
+export const { setMovies, setPage, setVideoId, setGenreId } = appSlice.actions;
 export default appSlice.reducer;

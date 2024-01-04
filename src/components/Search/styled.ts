@@ -7,6 +7,7 @@ export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   margin-right: 90px;
+  position: relative;
 `;
 
 export const SearchInput = styled.input.attrs({
@@ -57,4 +58,100 @@ export const SearchButton = styled.button`
   &:focus {
     border: 1px solid #ff8e00;
   }
+`;
+
+export const ElasticSearchContainer = styled.ul`
+  position: absolute;
+  overflow-y: scroll;
+  z-index: 5;
+  top: 38px;
+  width: 100%;
+  max-width: 627px;
+  max-height: 450px;
+  border: 1px solid rgba(196, 196, 196, 1);
+  background-color: ${({ theme }) => theme.backgroundColor};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  color: ${({ theme }) => theme.textColor};
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f9f9fd;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #000000;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #f9f9fd;
+  }
+`;
+
+export const ElasticSearchCardWrapper = styled.li`
+  padding: 5px;
+  width: 100%;
+  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 5px;
+  transition: 0.2s ease;
+`;
+
+export const PosterWrapper = styled.div`
+  overflow: hidden;
+  width: 90px;
+  height: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Poster = styled.img.attrs(({ src }) => ({
+  src: `${src}`,
+  alt: "Movie poster",
+  width: "90px",
+}))`
+  object-fit: cover;
+`;
+
+export const Description = styled.div`
+  width: 100%;
+  max-width: 500px;
+`;
+
+export const MovieName = styled.h3`
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 0;
+`;
+
+export const AdditionalInform = styled.p`
+  font-size: 14px;
+  margin: 5px 0;
+  overflow: hidden;
+  max-height: 65px;
+`;
+
+export const Total = styled.p`
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px;
+  color: orange;
+  border-bottom: 1px solid rgba(196, 196, 196, 1);
+`;
+
+export const NotFoundResults = styled.p`
+  font-size: 20px;
+  font-weight: bold;
 `;

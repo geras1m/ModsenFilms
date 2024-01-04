@@ -3,14 +3,15 @@ import { useGetVideoQuery } from "@store/api/movieApi";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { useEffect, useState } from "react";
 import { baseYoutubeUrl, youtubeParams } from "@root/constants/constants";
-import { setIsModalOpened } from "@store/slices/movieSlice";
+import { setIsVideoModalOpen } from "@store/slices/appSlice";
 import { Spinner } from "@components/Spinner";
 import CrossImg from "@assets/icons/Cross.svg";
 import { findTrailerOrTeaserFromData } from "@root/utils/findTrailerOrTeaserFromData";
 
 export const VideoModal = () => {
   const [youtubeKey, setYoutubeSrc] = useState<string | undefined>("");
-  const { videoId, isModalOpened } = useAppSelector((store) => store.movie);
+  const { videoId } = useAppSelector((store) => store.movie);
+  const { isModalOpened } = useAppSelector((store) => store.app);
   const { data, isFetching } = useGetVideoQuery({ videoId }, { skip: !videoId });
   const dispatch = useAppDispatch();
 
@@ -19,9 +20,12 @@ export const VideoModal = () => {
   }, [data]);
 
   const closeModal = () => {
-    dispatch(setIsModalOpened(false));
+    dispatch(setIsVideoModalOpen(false));
   };
 
+  // useEffect(() => {
+  //   document.body.style.position = isModalOpened ? "fixed" : "static";
+  // }, [isModalOpened]);
   //TODO: запретить скролл
 
   return (

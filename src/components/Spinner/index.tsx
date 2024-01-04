@@ -1,5 +1,9 @@
-import { SpinnerElement } from "@components/Spinner/styled";
+import { SpinnerElement, SpinnerWrapper } from "@components/Spinner/styled";
 
 export const Spinner = () => {
-  return <SpinnerElement />;
+  return (
+    <SpinnerWrapper>
+      <SpinnerElement />
+    </SpinnerWrapper>
+  );
 };
