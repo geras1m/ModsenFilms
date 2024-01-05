@@ -128,3 +128,5 @@ export const baseImgUrl: string = "https://image.tmdb.org/t/p/";
 export const languageUS: string = "en-US";
 
 export const minimumValueLength: number = 1;
+
+export const withoutGenre = "Without genre";

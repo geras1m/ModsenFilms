@@ -15,7 +15,7 @@ export const ElasticSearch: FC<IElasticSearchProps> = ({ moviesData, isLoading }
       {!isLoading && <Total>Total: {!moviesData ? 0 : moviesData.total_results}</Total>}
       {isLoading && <Spinner />}
       {!isLoading && moviesData && moviesData.total_results === 0 && (
-        <NotFoundResults>Search without result</NotFoundResults>
+        <NotFoundResults>Search without results</NotFoundResults>
       )}
       {!isLoading &&
         moviesData &&

@@ -19,6 +19,7 @@ export const Button = styled.button`
   }
 
   &:disabled {
+    cursor: auto;
     background-color: ${({ disabled }) => (disabled ? "grey" : Color.ORANGE)};
   }
 `;

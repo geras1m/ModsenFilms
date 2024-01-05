@@ -28,6 +28,8 @@ export const VideoModal = () => {
   // }, [isModalOpened]);
   //TODO: запретить скролл
 
+  //TODO fix прыгание надписи "The trailer was not found :("
+
   return (
     isModalOpened && (
       <VideoModalBox onClick={closeModal}>

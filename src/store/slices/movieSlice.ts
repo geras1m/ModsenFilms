@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMovie } from "@app-types/types";
+import { DisplayNowType, IMovie } from "@app-types/types";
 
 interface IMovieState {
   movies: IMovie[] | [];
   page: number;
   videoId: number;
   genreId: string;
+  displayNow: DisplayNowType;
+  searchTitle: string;
 }
 
 const initialState: IMovieState = {
@@ -13,6 +15,8 @@ const initialState: IMovieState = {
   page: 1,
   videoId: 0,
   genreId: "",
+  displayNow: "default",
+  searchTitle: "",
 };
 
 export const appSlice = createSlice({
@@ -30,11 +34,19 @@ export const appSlice = createSlice({
     },
     setGenreId: (state, action: PayloadAction<string>) => {
       state.genreId = action.payload;
-      state.page = 1;
+    },
+    clearMovies: (state) => {
       state.movies = [];
+    },
+    setDisplayNow: (state, action: PayloadAction<DisplayNowType>) => {
+      state.displayNow = action.payload;
+    },
+    setSearchTitle: (state, action: PayloadAction<string>) => {
+      state.searchTitle = action.payload;
     },
   },
 });
 
-export const { setMovies, setPage, setVideoId, setGenreId } = appSlice.actions;
+export const { setMovies, setPage, setVideoId, setGenreId, clearMovies, setDisplayNow, setSearchTitle } =
+  appSlice.actions;
 export default appSlice.reducer;

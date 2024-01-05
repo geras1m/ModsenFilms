@@ -1,5 +1,12 @@
 export type ThemeType = "light" | "dark";
 
+export type DisplayNowType = "default" | "search";
+
+export enum DisplayNowValue {
+  default = "default",
+  search = "search",
+}
+
 export enum ThemeValue {
   light = "light",
   dark = "dark",

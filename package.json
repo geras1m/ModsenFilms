@@ -5,7 +5,8 @@
   "homepage": "https://github.com/geras1m/ModsenFilms#readme",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "eslint-fix": "eslint --fix ./src --ext .ts,.tsx"
   },
   "dependencies": {
     "react": "^18.2.0",
