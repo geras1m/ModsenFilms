@@ -36,6 +36,35 @@ export const SearchInput = styled.input.attrs({
   &:focus {
     border: 1px solid #ff8e00;
   }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+`;
+
+export const ClearBtn = styled.div`
+  width: 13px;
+  height: 13px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 65px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.2s ease-in-out;
+  opacity: 0.6;
+  outline: none;
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: 1px solid orange;
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -84,7 +113,7 @@ export const ElasticSearchContainer = styled.ul`
 
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #000000;
+    background-color: #969696;
   }
 
   &::-webkit-scrollbar-track {

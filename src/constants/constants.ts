@@ -1,4 +1,8 @@
-import { IGenre } from "@app-types/types";
+import { IGenre, INavList, ISocialList } from "@app-types/types";
+import FacebookIcon from "@assets/icons/social/Facebook.svg";
+import TwitterIcon from "@assets/icons/social/Twitter.svg";
+import InstagramIcon from "@assets/icons/social/Instagram.svg";
+import LinkedInIcon from "@assets/icons/social/LinkedIn.svg";
 
 export const moviesPerPage = 20;
 
@@ -130,3 +134,59 @@ export const languageUS: string = "en-US";
 export const minimumValueLength: number = 1;
 
 export const withoutGenre = "Without genre";
+
+export const NavList: INavList[] = [
+  {
+    id: 1,
+    value: "TermsPrivacyPolicy  &  Safety",
+    link: "https://www.modsen-software.com/",
+  },
+  {
+    id: 2,
+    value: "How YouTube works",
+    link: "https://www.modsen-software.com/",
+  },
+  {
+    id: 3,
+    value: "Test new features",
+    link: "https://www.modsen-software.com/",
+  },
+  {
+    id: 4,
+    value: "About  Press  Copyright",
+    link: "https://www.modsen-software.com/",
+  },
+  {
+    id: 5,
+    value: "Contact us  Creators",
+    link: "https://www.modsen-software.com/",
+  },
+  {
+    id: 6,
+    value: "Advertise  Developers",
+    link: "https://www.modsen-software.com/",
+  },
+];
+
+export const SocialList: ISocialList[] = [
+  {
+    id: 1,
+    icon: FacebookIcon,
+    link: "https://www.facebook.com/ModsenSoftware",
+  },
+  {
+    id: 2,
+    icon: TwitterIcon,
+    link: "https://twitter.com/modsencompany",
+  },
+  {
+    id: 3,
+    icon: InstagramIcon,
+    link: "https://www.instagram.com/modsencompany",
+  },
+  {
+    id: 4,
+    icon: LinkedInIcon,
+    link: "https://www.linkedin.com/company/modsen",
+  },
+];

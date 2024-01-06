@@ -1,3 +1,5 @@
+import Icon from "@assets/icons/social/Facebook.svg";
+
 export type ThemeType = "light" | "dark";
 
 export type DisplayNowType = "default" | "search";
@@ -15,6 +17,15 @@ export enum ThemeValue {
 export enum ImgSizes {
   poster = "w500",
   avatar = "w92",
+}
+
+export enum VideoType {
+  Trailer = "Trailer",
+  Teaser = "Teaser",
+}
+
+export enum VideoSite {
+  YouTube = "YouTube",
 }
 
 export interface IGenre {
@@ -65,11 +76,14 @@ export interface IVideoResponse {
   results: IVideo[];
 }
 
-export enum VideoType {
-  Trailer = "Trailer",
-  Teaser = "Teaser",
+export interface INavList {
+  id: number;
+  value: string;
+  link: string;
 }
 
-export enum VideoSite {
-  YouTube = "YouTube",
+export interface ISocialList {
+  id: number;
+  icon: typeof Icon;
+  link: string;
 }

@@ -33,6 +33,11 @@ export const MoviesList = () => {
 
   const isLoading = isFetchingByGenre || isFetchingByTitle;
 
+  const getCurrentMovieList = (): IMovieResponse | undefined => {
+    if (moviesByGenre && isSuccessByGenre) return moviesByGenre;
+    if (moviesByTitle && isSuccessByTitle) return moviesByTitle;
+  };
+
   useEffect(() => {
     const movieList = getCurrentMovieList();
     if (movieList) {
@@ -40,11 +45,6 @@ export const MoviesList = () => {
       setIsDisabledBtn(movieList.total_pages <= page);
     }
   }, [moviesByGenre, moviesByTitle, genreId]);
-
-  const getCurrentMovieList = (): IMovieResponse | undefined => {
-    if (moviesByGenre && isSuccessByGenre) return moviesByGenre;
-    if (moviesByTitle && isSuccessByTitle) return moviesByTitle;
-  };
 
   const setVideoIdToState = (videoId: number) => {
     dispatch(setVideoId(videoId));

@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, useEffect, useState, KeyboardEvent } from "react";
-import { SearchButton, SearchContainer, SearchInput } from "@components/Search/styled";
+import { ClearBtn, SearchButton, SearchContainer, SearchInput } from "@components/Search/styled";
 import SearchIcon from "@assets/icons/SearchBtnIcon.svg";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { DisplayNowValue, ThemeValue } from "@app-types/types";
@@ -10,6 +10,7 @@ import { ElasticSearch } from "@components/Search/ElasticSearch";
 import { setIsElasticSearchModalOpen } from "@store/slices/appSlice";
 import { minimumValueLength, withoutGenre } from "@root/constants/constants";
 import { clearMovies, setDisplayNow, setGenreId, setPage, setSearchTitle } from "@store/slices/movieSlice";
+import CrossImg from "@assets/icons/Cross.svg";
 
 export const Search: FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -34,7 +35,6 @@ export const Search: FC = () => {
     setInputValue(e.target.value);
   };
 
-  //TODO кнопку для очистки инпута
   const clearInput = () => setInputValue("");
 
   const setOpenElasticSearch = (value: boolean) => {
@@ -58,6 +58,8 @@ export const Search: FC = () => {
     }
   };
 
+  const iconColor = theme === ThemeValue.light ? "" : Color.WHITE;
+
   return (
     <SearchContainer>
       <SearchInput
@@ -67,8 +69,13 @@ export const Search: FC = () => {
         onChange={changeInputValue}
         onKeyDown={displayMoviesByEnter}
       />
+      {debouncedValue.length > 0 && (
+        <ClearBtn tabIndex={0} onClick={clearInput}>
+          <CrossImg fill={iconColor} />
+        </ClearBtn>
+      )}
       <SearchButton onClick={displayMovies}>
-        <SearchIcon fill={theme === ThemeValue.light ? "" : Color.WHITE} />
+        <SearchIcon fill={iconColor} />
       </SearchButton>
       {isElasticSearchModalOpened && <ElasticSearch moviesData={moviesByTitle} isLoading={isFetching} />}
     </SearchContainer>
