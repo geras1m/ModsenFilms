@@ -30,7 +30,7 @@ export const Footer = () => {
             ))}
           </SocialWrapper>
         </Content>
-        <Copyright>2023 Modsen company</Copyright>
+        <Copyright>2024 Modsen company</Copyright>
       </FooterContainer>
     </FooterBox>
   );

@@ -19,16 +19,13 @@ export const VideoModal = () => {
     data && setYoutubeSrc(findTrailerOrTeaserFromData(data.results));
   }, [data]);
 
+  useEffect(() => {
+    document.body.style.overflow = isModalOpened ? "hidden" : "auto";
+  }, [isModalOpened]);
+
   const closeModal = () => {
     dispatch(setIsVideoModalOpen(false));
   };
-
-  // useEffect(() => {
-  //   document.body.style.position = isModalOpened ? "fixed" : "static";
-  // }, [isModalOpened]);
-  //TODO: запретить скролл
-
-  //TODO fix прыгание надписи "The trailer was not found :("
 
   return (
     isModalOpened && (
@@ -36,7 +33,9 @@ export const VideoModal = () => {
         <VideoContainer>
           {isFetching && <Spinner />}
           {!isFetching && youtubeKey && <Video src={baseYoutubeUrl + youtubeKey + youtubeParams} />}
-          {!youtubeKey && !isFetching && <Text>The trailer was not found :(</Text>}
+          {!youtubeKey && !isFetching && data?.results.length === 0 && (
+            <Text>The trailer was not found :(</Text>
+          )}
         </VideoContainer>
         <ClosesModalBtn onClick={closeModal}>
           <CrossImg />

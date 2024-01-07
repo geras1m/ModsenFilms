@@ -22,4 +22,11 @@ export const Button = styled.button`
     cursor: auto;
     background-color: ${({ disabled }) => (disabled ? "grey" : Color.ORANGE)};
   }
+
+  @media (max-width: 400px) {
+    margin-top: 10px;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 35px;
+  }
 `;

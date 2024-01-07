@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const MovieCardContainer = styled.article`
   width: 100%;
   max-width: 322px;
-  height: 283px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   transition: 0.2s ease;
+  padding-bottom: 30px;
 
   &:hover {
-    box-shadow: 0 0 15px 0 rgb(211, 124, 15);
+    box-shadow: 0 0 15px 0 rgb(125 125 125);
     transform: rotate(1.5deg);
   }
 `;
@@ -23,6 +23,10 @@ export const MoviePosterWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
+
+  @media (max-width: 310px) {
+    height: 129px;
+  }
 `;
 
 export const MoviePoster = styled.img.attrs(({ src }) => ({
@@ -36,6 +40,10 @@ export const MoviePoster = styled.img.attrs(({ src }) => ({
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media (max-width: 310px) {
+    height: 129px;
   }
 `;
 
@@ -53,6 +61,13 @@ export const Avatar = styled.img.attrs(({ src }) => ({
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
+
+  @media (max-width: 310px) {
+    width: 22px;
+    height: 27px;
+    flex: 0 0 22px;
+    border-radius: 40%;
+  }
 `;
 
 export const Description = styled.div`
@@ -67,6 +82,11 @@ export const Name = styled.h2`
   line-height: 22px;
   font-weight: normal;
   margin: 11px 0 0;
+
+  @media (max-width: 310px) {
+    font-size: 14px;
+    margin: 0;
+  }
 `;
 
 export const Text = styled.p`

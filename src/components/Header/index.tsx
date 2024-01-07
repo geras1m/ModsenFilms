@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { HeaderBody, HeaderContainer } from "@components/Header/styled";
+import { HeaderBody, HeaderContainer, ThemeContainer } from "@components/Header/styled";
 import { Logo } from "@components/Logo";
 import { Search } from "@components/Search";
 import { ThemeToggle } from "@components/ThemeToggle";
+import { BurgerMenu } from "@components/BurgerMenu";
 
 export const Header: FC = () => {
   return (
@@ -10,7 +11,10 @@ export const Header: FC = () => {
       <HeaderBody>
         <Logo />
         <Search />
-        <ThemeToggle />
+        <ThemeContainer>
+          <ThemeToggle />
+        </ThemeContainer>
+        <BurgerMenu />
       </HeaderBody>
     </HeaderContainer>
   );

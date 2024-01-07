@@ -53,9 +53,9 @@ export const MoviesList = () => {
 
   const skeletons = [...new Array(moviesPerPage).fill("")].map((_, index) => <Skeleton key={index} />);
 
-  const movieCards = movies.map((movie, index) => (
+  const movieCards = movies.map((movie) => (
     <MovieCard
-      key={index}
+      key={movie.id}
       movieData={movie}
       isLoading={isLoading}
       onClick={() => setVideoIdToState(movie.id)}

@@ -18,6 +18,13 @@ export const FilterBarBody = styled.div`
   justify-content: center;
   column-gap: 10px;
   padding: 12px 0;
+  margin: 0 14px;
+
+  @media (max-width: 700px) {
+    justify-content: left;
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
 `;
 
 export const FilterItem = styled.button<{ selected: boolean }>`

@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div`
+  grid-area: search;
+  justify-self: center;
   width: 100%;
   max-width: 627px;
   height: 38px;
   display: flex;
   align-items: center;
-  margin-right: 90px;
   position: relative;
+
+  @media (max-width: 950px) {
+    max-width: 500px;
+  }
+
+  @media (max-width: 750px) {
+    max-width: 100%;
+  }
 `;
 
 export const SearchInput = styled.input.attrs({
@@ -17,7 +26,7 @@ export const SearchInput = styled.input.attrs({
   width: 100%;
   max-width: 570px;
   height: 100%;
-  padding: 8px 15px;
+  padding: 8px 25px 8px 15px;
   font-size: 14px;
   border: 1px solid rgba(196, 196, 196, 1);
   transition: 0.3s ease;
@@ -39,6 +48,10 @@ export const SearchInput = styled.input.attrs({
 
   &::-webkit-search-cancel-button {
     display: none;
+  }
+
+  @media (max-width: 750px) {
+    max-width: 100%;
   }
 `;
 
@@ -121,6 +134,10 @@ export const ElasticSearchContainer = styled.ul`
     border-radius: 10px;
     background-color: #f9f9fd;
   }
+
+  @media (max-width: 750px) {
+    max-width: 100%;
+  }
 `;
 
 export const ElasticSearchCardWrapper = styled.li`
@@ -128,7 +145,8 @@ export const ElasticSearchCardWrapper = styled.li`
   width: 100%;
   border-bottom: 1px solid rgba(196, 196, 196, 1);
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 100px 1fr;
   justify-content: space-between;
   column-gap: 5px;
   transition: 0.2s ease;
@@ -153,7 +171,6 @@ export const Poster = styled.img.attrs(({ src }) => ({
 
 export const Description = styled.div`
   width: 100%;
-  max-width: 500px;
 `;
 
 export const MovieName = styled.h3`

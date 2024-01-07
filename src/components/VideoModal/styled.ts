@@ -21,6 +21,14 @@ export const VideoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 700px) {
+    height: 70%;
+  }
+
+  @media (max-width: 500px) {
+    height: 60%;
+  }
 `;
 
 export const Video = styled.iframe.attrs<{ src: string }>(({ src }) => ({
@@ -55,5 +63,12 @@ export const ClosesModalBtn = styled.button`
 
   &:hover {
     background-color: rgb(175 175 175);
+  }
+
+  @media (max-width: 900px) {
+    top: 3%;
+    right: 2%;
+    width: 30px;
+    height: 30px;
   }
 `;
