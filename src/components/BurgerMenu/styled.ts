@@ -25,7 +25,7 @@ export const BurgerWrapper = styled.nav<IBurgerMenuProps>`
     height: 0.25rem;
     background-color: ${({ theme }) => theme.textColor};
     border-radius: 10px;
-    transition: all 0.3s linear;
+    transition: ${({ theme }) => theme.transitionBurger};
     position: relative;
     transform-origin: 1px;
 
@@ -59,7 +59,7 @@ export const Menu = styled.div<IBurgerMenuProps>`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({ theme }) => theme.bgColor};
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   height: 100vh;
   text-align: left;
@@ -68,7 +68,7 @@ export const Menu = styled.div<IBurgerMenuProps>`
   z-index: 1;
   top: 0;
   right: 0;
-  transition: 0.2s ease-in-out;
+  transition: ${({ theme }) => theme.transition};
 
   @media (max-width: 750px) {
     display: flex;
@@ -83,6 +83,6 @@ export const Text = styled.p`
 export const SelectedThemeText = styled.span`
   font-size: 20px;
   font-weight: bold;
-  transition: 0.2s ease;
+  transition: ${({ theme }) => theme.transition};
   color: ${({ theme }) => theme.textColor};
 `;

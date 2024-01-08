@@ -8,31 +8,31 @@ interface IToggleProps {
 export const ToggleWrapper = styled.button`
   width: 50px;
   height: 28px;
-  border: 2px solid rgba(255, 165, 0, 0.6);
+  border: 2px solid ${({ theme }) => theme.orange};
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: left;
   position: relative;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: ${({ theme }) => theme.transition};
   outline: none;
-  background-color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({ theme }) => theme.bgColor};
 
   &:hover {
-    border: 2px solid orange;
+    border: 2px solid ${({ theme }) => theme.inputFocus};
     box-shadow: 0 0 10px 5px rgb(255 209 0 / 20%);
   }
 
   &:focus {
-    outline: 2px solid #a4a4a4;
+    outline: 2px solid ${({ theme }) => theme.borderColor};
   }
 `;
 
 export const Toggle = styled.div<IToggleProps>`
   width: 27px;
   height: 27px;
-  border: 2px solid rgba(255, 165, 0, 0.6);
+  border: 2px solid #f86f03ff;
   border-radius: 50%;
   position: absolute;
   left: -1px;

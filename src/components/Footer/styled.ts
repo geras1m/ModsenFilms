@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterBox = styled.footer`
-  border-top: 1px solid rgba(196, 196, 196, 1);
+  border-top: 1px solid ${({ theme }) => theme.borderColor};
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
@@ -53,10 +53,10 @@ export const NavLink = styled.a.attrs({
   line-height: 23px;
   color: ${({ theme }) => theme.textColor};
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: ${({ theme }) => theme.transition};
 
   &:hover {
-    color: orange;
+    color: ${({ theme }) => theme.orange};
   }
 
   @media (max-width: 570px) {
@@ -96,7 +96,7 @@ export const Copyright = styled.p`
   font-weight: bold;
   text-align: center;
   line-height: 28px;
-  color: rgba(196, 196, 196, 1);
+  color: ${({ theme }) => theme.borderColor};
 
   @media (max-width: 570px) {
     font-size: 18px;

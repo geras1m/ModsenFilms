@@ -1,3 +1,10 @@
+import { FC } from "react";
+import PosterNotFoundImg from "@assets/images/PosterNotFound.jpg";
+import DefaultAvatarImg from "@assets/images/DefaultAvatar.png";
+import { parseYearFromDate } from "@utils/parseYearFromDate";
+import { parseGenres } from "@utils/parseGenres";
+import { baseImgUrl } from "@constants/constants";
+import { ImgSizes, IMovie } from "@app-types/types";
 import {
   Avatar,
   Description,
@@ -8,13 +15,6 @@ import {
   Name,
   Text,
 } from "@components/MovieCard/styled";
-import { ImgSizes, IMovie } from "@app-types/types";
-import { FC } from "react";
-import { parseYearFromDate } from "@root/utils/parseYearFromDate";
-import { parseGenres } from "@root/utils/parseGenres";
-import PosterNotFoundImg from "@assets/images/PosterNotFound.jpg";
-import DefaultAvatarImg from "@assets/images/DefaultAvatar.png";
-import { baseImgUrl } from "@root/constants/constants";
 
 interface IMovieCardProps {
   movieData: IMovie;

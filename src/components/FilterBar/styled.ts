@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FilterBarBox = styled.div`
-  border: 1px solid rgba(196, 196, 196, 1);
+  border: 1px solid ${({ theme }) => theme.borderColor};
   border-left: none;
   border-right: none;
 `;
@@ -30,23 +30,23 @@ export const FilterBarBody = styled.div`
 export const FilterItem = styled.button<{ selected: boolean }>`
   height: 30px;
   padding: 7px 21px;
-  border: 1px solid rgba(196, 196, 196, 1);
+  border: 1px solid ${({ theme }) => theme.borderColor};
   border-radius: 15px;
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: ${({ selected, theme }) => (selected ? "white" : theme.textColor)};
-  background-color: ${({ selected, theme }) => (selected ? "black" : theme.backgroundColorGenre)};
+  background-color: ${({ selected, theme }) => (selected ? "black" : theme.bgColorGenre)};
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: ${({ theme }) => theme.transition};
 
   &:hover {
-    background-color: #969696;
+    background-color: ${({ theme }) => theme.bgHover};
   }
 
   &:disabled {
     cursor: auto;
-    background-color: black;
+    background-color: ${({ theme }) => theme.black};
   }
 `;

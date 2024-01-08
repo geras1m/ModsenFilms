@@ -1,31 +1,56 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 
-export enum Color {
-  ORANGE = "#F86F03FF",
-  BLACK = "#000000FF",
-  LIGHT_BLACK = "#151515FF",
-  LIGHT_GENRE = "#00000019",
-  DARK_GENRE = "#6767679E",
-  WHITE = "#FFFFFFFF",
+interface IBaseTheme {
+  orange: string;
+  black: string;
+  white: string;
+  lightGenre: string;
+  darkGenre: string;
+  bgHover: string;
+  borderColor: string;
+  boxShadow: string;
+  inputPlaceholder: string;
+  inputHover: string;
+  inputFocus: string;
+  transition: string;
+  transitionBurger: string;
 }
 
-interface IThemeTemplate {
-  backgroundColor: string;
-  backgroundColorGenre: string;
+export const baseTheme: IBaseTheme = {
+  orange: "#F86F03FF",
+  black: "#000000FF",
+  white: "#FFFFFFFF",
+  lightGenre: "#00000019",
+  darkGenre: "#6767679E",
+  bgHover: "#969696",
+  borderColor: "#C4C4C4FF",
+  boxShadow: "#7D7D7DFF",
+  inputPlaceholder: "#B7B7B7FF",
+  inputHover: "#ffbb93",
+  inputFocus: "#ff8e00",
+  transition: ".2s ease-in-out",
+  transitionBurger: "all 0.3s linear",
+};
+
+interface IThemeTemplate extends IBaseTheme {
+  bgColor: string;
+  bgColorGenre: string;
   textColor: string;
 }
 
 export const darkTheme: IThemeTemplate = {
-  backgroundColor: Color.LIGHT_BLACK,
-  backgroundColorGenre: Color.DARK_GENRE,
-  textColor: Color.WHITE,
+  ...baseTheme,
+  bgColor: baseTheme.black,
+  bgColorGenre: baseTheme.darkGenre,
+  textColor: baseTheme.white,
 };
 
 export const lightTheme: IThemeTemplate = {
-  backgroundColor: Color.WHITE,
-  backgroundColorGenre: Color.LIGHT_GENRE,
-  textColor: Color.BLACK,
+  ...baseTheme,
+  bgColor: baseTheme.white,
+  bgColorGenre: baseTheme.lightGenre,
+  textColor: baseTheme.black,
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -40,13 +65,13 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
   }
-  
+
   body {
-    transition: .3s ease;
-    background-color: ${({ theme }) => theme.backgroundColor};
+    transition: ${({ theme }) => theme.transition};
+    background-color: ${({ theme }) => theme.bgColor};
   }
-  
-  #root{
+
+  #root {
     height: 100vh;
     display: flex;
     flex-direction: column;

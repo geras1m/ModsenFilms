@@ -1,11 +1,8 @@
+import { FC } from "react";
+import { IMovieResponse } from "@app-types/types";
 import { ElasticSearchContainer, NotFoundResults, Total } from "@components/Search/styled";
 import { Spinner } from "@components/Spinner";
-import { IMovieResponse } from "@app-types/types";
-import { FC } from "react";
 import { ElasticSearchCard } from "@components/Search/Card";
-import { useAppDispatch } from "@hooks/reduxHooks";
-import { setVideoId } from "@store/slices/movieSlice";
-import { setIsVideoModalOpen } from "@store/slices/appSlice";
 
 interface IElasticSearchProps {
   moviesData: IMovieResponse | undefined;

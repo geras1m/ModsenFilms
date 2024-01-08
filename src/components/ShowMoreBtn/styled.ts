@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "@components/App/styled";
+import { baseTheme } from "@components/App/styled";
 
 export const Button = styled.button`
   font-size: 22px;
@@ -7,12 +7,12 @@ export const Button = styled.button`
   padding: 14px 35px;
   border-radius: 10px;
   border: none;
-  color: ${Color.WHITE};
-  background-color: ${Color.ORANGE};
+  color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.orange};
   margin-top: 37px;
   cursor: pointer;
   opacity: 0.8;
-  transition: 0.2s ease;
+  transition: ${({ theme }) => theme.transition};
 
   &:hover {
     opacity: 1;
@@ -20,7 +20,7 @@ export const Button = styled.button`
 
   &:disabled {
     cursor: auto;
-    background-color: ${({ disabled }) => (disabled ? "grey" : Color.ORANGE)};
+    background-color: ${({ disabled }) => (disabled ? "grey" : baseTheme.orange)};
   }
 
   @media (max-width: 400px) {

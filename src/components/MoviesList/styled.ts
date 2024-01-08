@@ -24,7 +24,6 @@ export const MovieListContent = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  transition: 0.3s ease;
   grid-gap: 30px 20px;
 
   @media (max-width: 1150px) {

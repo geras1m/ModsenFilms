@@ -1,19 +1,19 @@
+import { useEffect, useState } from "react";
+import { DisplayNowValue, IMovieResponse } from "@app-types/types";
+import { setIsVideoModalOpen } from "@store/slices/appSlice";
+import { useFindMoviesByTitleQuery, useGetMoviesQuery } from "@store/api/movieApi";
+import { setMovies, setVideoId } from "@store/slices/movieSlice";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
+import { Skeleton } from "@components/Skeleton";
+import { ShowMoreBtn } from "@components/ShowMoreBtn";
+import { moviesPerPage } from "@constants/constants";
+import { MovieCard } from "@components/MovieCard";
 import {
   MovieListContent,
   MoviesListBox,
   MoviesListContainer,
   NoMovies,
 } from "@components/MoviesList/styled";
-import { MovieCard } from "@components/MovieCard";
-import { useFindMoviesByTitleQuery, useGetMoviesQuery } from "@store/api/movieApi";
-import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
-import { useEffect, useState } from "react";
-import { setMovies, setVideoId } from "@store/slices/movieSlice";
-import { Skeleton } from "@components/Skeleton";
-import { ShowMoreBtn } from "@components/ShowMoreBtn";
-import { moviesPerPage } from "@root/constants/constants";
-import { setIsVideoModalOpen } from "@store/slices/appSlice";
-import { DisplayNowValue, IMovieResponse } from "@app-types/types";
 
 export const MoviesList = () => {
   const [isDisabledBtn, setIsDisabledBtn] = useState<boolean>(false);

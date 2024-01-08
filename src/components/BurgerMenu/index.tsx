@@ -1,7 +1,7 @@
-import { BurgerWrapper, Menu, SelectedThemeText, Text } from "@components/BurgerMenu/styled";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "@components/ThemeToggle";
 import { useAppSelector } from "@hooks/reduxHooks";
+import { BurgerWrapper, Menu, SelectedThemeText, Text } from "@components/BurgerMenu/styled";
+import { ThemeToggle } from "@components/ThemeToggle";
 
 export const BurgerMenu = () => {
   const { theme } = useAppSelector((store) => store.app);

@@ -1,16 +1,16 @@
 import { ChangeEvent, FC, useEffect, useState, KeyboardEvent } from "react";
-import { ClearBtn, SearchButton, SearchContainer, SearchInput } from "@components/Search/styled";
-import SearchIcon from "@assets/icons/SearchBtnIcon.svg";
-import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { DisplayNowValue, ThemeValue } from "@app-types/types";
-import { Color } from "@components/App/styled";
 import { useDebounce } from "@hooks/useDebounce";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { useFindMoviesByTitleQuery } from "@store/api/movieApi";
-import { ElasticSearch } from "@components/Search/ElasticSearch";
-import { setIsElasticSearchModalOpen } from "@store/slices/appSlice";
-import { minimumValueLength, withoutGenre } from "@root/constants/constants";
 import { clearMovies, setDisplayNow, setGenreId, setPage, setSearchTitle } from "@store/slices/movieSlice";
+import { setIsElasticSearchModalOpen } from "@store/slices/appSlice";
 import CrossImg from "@assets/icons/Cross.svg";
+import SearchIcon from "@assets/icons/SearchBtnIcon.svg";
+import { ClearBtn, SearchButton, SearchContainer, SearchInput } from "@components/Search/styled";
+import { baseTheme } from "@components/App/styled";
+import { ElasticSearch } from "@components/Search/ElasticSearch";
+import { minimumValueLength, withoutGenre } from "@constants/constants";
 
 export const Search: FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -58,7 +58,7 @@ export const Search: FC = () => {
     }
   };
 
-  const iconColor = theme === ThemeValue.light ? "" : Color.WHITE;
+  const iconColor = theme === ThemeValue.light ? "" : baseTheme.white;
 
   return (
     <SearchContainer>

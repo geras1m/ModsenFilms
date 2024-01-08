@@ -8,7 +8,7 @@ import {
   SocialLink,
   SocialWrapper,
 } from "@components/Footer/styled";
-import { NavList, SocialList } from "@root/constants/constants";
+import { NavList, SocialList } from "@constants/constants";
 
 export const Footer = () => {
   return (

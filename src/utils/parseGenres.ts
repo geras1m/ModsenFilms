@@ -1,4 +1,4 @@
-import { allGenres } from "@root/constants/constants";
+import { allGenres } from "@constants/constants";
 
 type ParseGenresType = (genres: number[]) => string;
 

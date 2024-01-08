@@ -6,11 +6,11 @@ export const MovieCardContainer = styled.article`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: ${({ theme }) => theme.transition};
   padding-bottom: 30px;
 
   &:hover {
-    box-shadow: 0 0 15px 0 rgb(125 125 125);
+    box-shadow: 0 0 15px 0 ${({ theme }) => theme.boxShadow};
     transform: rotate(1.5deg);
   }
 `;
@@ -36,7 +36,7 @@ export const MoviePoster = styled.img.attrs(({ src }) => ({
   width: 100%;
   height: 186px;
   object-fit: cover;
-  transition: 0.3s ease;
+  transition: ${({ theme }) => theme.transition};
 
   &:hover {
     transform: scale(1.1);
@@ -73,7 +73,7 @@ export const Avatar = styled.img.attrs(({ src }) => ({
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
-  transition: 0.3s ease;
+  transition: ${({ theme }) => theme.transition};
   color: ${({ theme }) => theme.textColor};
 `;
 

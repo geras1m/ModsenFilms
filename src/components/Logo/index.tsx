@@ -4,17 +4,15 @@ import LogoIcon from "@assets/icons/Logo.svg";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { clearMovies, setDisplayNow, setGenreId, setPage, setSearchTitle } from "@store/slices/movieSlice";
 import { DisplayNowValue } from "@app-types/types";
-import { genres } from "@root/constants/constants";
-
-//TODO повесить клик чиобы выставлял категорию - все
+import { genres } from "@constants/constants";
 
 export const Logo: FC = () => {
   const { genreId } = useAppSelector((store) => store.movie);
   const dispatch = useAppDispatch();
-  const genreAll = genres[0].genreId;
+  const selectedGenreAll = genres[0].genreId;
 
   const setDefaultSetting = () => {
-    if (genreId !== genreAll) {
+    if (genreId !== selectedGenreAll) {
       dispatch(clearMovies());
     }
     dispatch(setDisplayNow(DisplayNowValue.default));

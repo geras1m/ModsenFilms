@@ -28,22 +28,22 @@ export const SearchInput = styled.input.attrs({
   height: 100%;
   padding: 8px 25px 8px 15px;
   font-size: 14px;
-  border: 1px solid rgba(196, 196, 196, 1);
-  transition: 0.3s ease;
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  transition: ${({ theme }) => theme.transition};
   color: ${({ theme }) => theme.textColor};
-  background-color: ${({ theme }) => theme.backgroundColor};
+  background-color: ${({ theme }) => theme.bgColor};
   outline: none;
 
   &::placeholder {
-    color: rgb(183, 183, 183);
+    color: ${({ theme }) => theme.inputPlaceholder};
   }
 
   &:hover {
-    border: 1px solid #ffbb93;
+    border: 1px solid ${({ theme }) => theme.inputHover};
   }
 
   &:focus {
-    border: 1px solid #ff8e00;
+    border: 1px solid ${({ theme }) => theme.inputFocus};
   }
 
   &::-webkit-search-cancel-button {
@@ -66,7 +66,7 @@ export const ClearBtn = styled.div`
   right: 65px;
   cursor: pointer;
   background-color: transparent;
-  transition: 0.2s ease-in-out;
+  transition: ${({ theme }) => theme.transition};
   opacity: 0.6;
   outline: none;
 
@@ -76,29 +76,29 @@ export const ClearBtn = styled.div`
   }
 
   &:focus {
-    outline: 1px solid orange;
+    outline: 1px solid ${({ theme }) => theme.orange};
   }
 `;
 
 export const SearchButton = styled.button`
   width: 57px;
   height: 100%;
-  border: 1px solid rgba(196, 196, 196, 1);
+  border: 1px solid ${({ theme }) => theme.borderColor};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.3s ease;
-  background-color: ${({ theme }) => theme.backgroundColor};
+  transition: ${({ theme }) => theme.transition};
+  background-color: ${({ theme }) => theme.bgColor};
   outline: none;
 
   &:hover {
-    border: 1px solid #ffb082;
-    background-color: #969696;
+    border: 1px solid ${({ theme }) => theme.inputHover};
+    background-color: ${({ theme }) => theme.bgHover};
   }
 
   &:focus {
-    border: 1px solid #ff8e00;
+    border: 1px solid ${({ theme }) => theme.inputFocus};
   }
 `;
 
@@ -110,8 +110,8 @@ export const ElasticSearchContainer = styled.ul`
   width: 100%;
   max-width: 627px;
   max-height: 450px;
-  border: 1px solid rgba(196, 196, 196, 1);
-  background-color: ${({ theme }) => theme.backgroundColor};
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  background-color: ${({ theme }) => theme.bgColor};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,18 +121,18 @@ export const ElasticSearchContainer = styled.ul`
 
   &::-webkit-scrollbar {
     width: 10px;
-    background-color: #f9f9fd;
+    background-color: ${({ theme }) => theme.white};
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #969696;
+    background-color: ${({ theme }) => theme.bgHover};
   }
 
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    background-color: #f9f9fd;
+    background-color: ${({ theme }) => theme.white};
   }
 
   @media (max-width: 750px) {
@@ -143,13 +143,13 @@ export const ElasticSearchContainer = styled.ul`
 export const ElasticSearchCardWrapper = styled.li`
   padding: 5px;
   width: 100%;
-  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  border-bottom: 1px solid ${({ theme }) => theme.borderColor};
   list-style: none;
   display: grid;
   grid-template-columns: 100px 1fr;
   justify-content: space-between;
   column-gap: 5px;
-  transition: 0.2s ease;
+  transition: ${({ theme }) => theme.transition};
 `;
 
 export const PosterWrapper = styled.div`
@@ -193,8 +193,8 @@ export const Total = styled.p`
   font-weight: bold;
   margin: 0;
   padding: 5px;
-  color: orange;
-  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  color: ${({ theme }) => theme.orange};
+  border-bottom: 1px solid ${({ theme }) => theme.borderColor};
 `;
 
 export const NotFoundResults = styled.p`

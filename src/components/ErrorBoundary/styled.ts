@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color } from "@components/App/styled";
+import { baseTheme } from "@components/App/styled";
 
 export const Container = styled.div`
   display: flex;
@@ -14,8 +14,8 @@ export const Button = styled.button`
   padding: 10px 15px;
   border-radius: 10px;
   border: none;
-  color: ${Color.WHITE};
-  background-color: ${Color.ORANGE};
+  color: ${baseTheme.white};
+  background-color: ${baseTheme.orange};
   cursor: pointer;
   opacity: 0.8;
   transition: 0.2s ease;

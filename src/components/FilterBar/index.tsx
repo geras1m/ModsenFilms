@@ -1,8 +1,8 @@
-import { FilterBarContainer, FilterBarBox, FilterBarBody, FilterItem } from "@components/FilterBar/styled";
-import { genres, withoutGenre } from "@root/constants/constants";
-import { clearMovies, setDisplayNow, setGenreId, setPage } from "@store/slices/movieSlice";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { DisplayNowValue } from "@app-types/types";
+import { genres, withoutGenre } from "@constants/constants";
+import { clearMovies, setDisplayNow, setGenreId, setPage } from "@store/slices/movieSlice";
+import { FilterBarContainer, FilterBarBox, FilterBarBody, FilterItem } from "@components/FilterBar/styled";
 
 export const FilterBar = () => {
   const { genreId } = useAppSelector((store) => store.movie);
@@ -12,7 +12,9 @@ export const FilterBar = () => {
     dispatch(setDisplayNow(DisplayNowValue.default));
     dispatch(setGenreId(id));
     dispatch(setPage(1));
-    dispatch(clearMovies());
+    if (genreId !== id) {
+      dispatch(clearMovies());
+    }
   };
 
   return (

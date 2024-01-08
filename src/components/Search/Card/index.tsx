@@ -1,3 +1,8 @@
+import { FC } from "react";
+import { ImgSizes, IMovie } from "@app-types/types";
+import { baseImgUrl } from "@constants/constants";
+import { parseYearFromDate } from "@utils/parseYearFromDate";
+import DefaultPosterImg from "@assets/images/ElasticPosterNotFound.jpg";
 import {
   AdditionalInform,
   Description,
@@ -6,11 +11,6 @@ import {
   PosterWrapper,
   ElasticSearchCardWrapper,
 } from "@components/Search/styled";
-import { parseYearFromDate } from "@root/utils/parseYearFromDate";
-import { ImgSizes, IMovie } from "@app-types/types";
-import { FC } from "react";
-import { baseImgUrl } from "@root/constants/constants";
-import DefaultPosterImg from "@assets/images/ElasticPosterNotFound.jpg";
 
 interface ICardProps {
   movieData: IMovie;

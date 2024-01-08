@@ -1,12 +1,12 @@
-import { ClosesModalBtn, Text, Video, VideoContainer, VideoModalBox } from "@components/VideoModal/styled";
-import { useGetVideoQuery } from "@store/api/movieApi";
-import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
 import { useEffect, useState } from "react";
-import { baseYoutubeUrl, youtubeParams } from "@root/constants/constants";
+import { useGetVideoQuery } from "@store/api/movieApi";
 import { setIsVideoModalOpen } from "@store/slices/appSlice";
-import { Spinner } from "@components/Spinner";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
+import { baseYoutubeUrl, youtubeParams } from "@constants/constants";
+import { findTrailerOrTeaserFromData } from "@utils/findTrailerOrTeaserFromData";
 import CrossImg from "@assets/icons/Cross.svg";
-import { findTrailerOrTeaserFromData } from "@root/utils/findTrailerOrTeaserFromData";
+import { ClosesModalBtn, Text, Video, VideoContainer, VideoModalBox } from "@components/VideoModal/styled";
+import { Spinner } from "@components/Spinner";
 
 export const VideoModal = () => {
   const [youtubeKey, setYoutubeSrc] = useState<string | undefined>("");
