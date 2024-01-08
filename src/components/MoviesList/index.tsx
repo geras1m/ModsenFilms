@@ -24,6 +24,7 @@ export const MoviesList = () => {
     data: moviesByGenre,
     isFetching: isFetchingByGenre,
     isSuccess: isSuccessByGenre,
+    error,
   } = useGetMoviesQuery({ page, genre: genreId }, { skip: skipLoading });
   const {
     data: moviesByTitle,
@@ -69,7 +70,10 @@ export const MoviesList = () => {
           {movies.length !== 0 && movieCards}
           {isLoading && skeletons}
         </MovieListContent>
-        {movies.length === 0 && !isLoading && <NoMovies>No movies :(</NoMovies>}
+        {error && "status" in error && error.status === "FETCH_ERROR" && (
+          <NoMovies>Movies are not available. You should probably use a VPN and reload the page.</NoMovies>
+        )}
+        {!error && movies.length === 0 && !isLoading && <NoMovies>No movies :(</NoMovies>}
         {movies.length === 0 ? null : <ShowMoreBtn isDisabled={isLoading || isDisabledBtn} />}
       </MoviesListContainer>
     </MoviesListBox>
