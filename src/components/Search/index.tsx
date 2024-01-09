@@ -61,20 +61,21 @@ export const Search: FC = () => {
   const iconColor = theme === ThemeValue.light ? "" : baseTheme.white;
 
   return (
-    <SearchContainer>
+    <SearchContainer data-test="search-module">
       <SearchInput
         onBlur={() => setOpenElasticSearch(false)}
         onFocus={() => debouncedValue.length > minimumValueLength && setOpenElasticSearch(true)}
         value={inputValue}
         onChange={changeInputValue}
         onKeyDown={displayMoviesByEnter}
+        data-test="search-input"
       />
-      {debouncedValue.length > 0 && (
-        <ClearBtn tabIndex={0} onClick={clearInput}>
+      {inputValue.length > 0 && (
+        <ClearBtn data-test="clear-btn" tabIndex={0} onClick={clearInput}>
           <CrossImg fill={iconColor} />
         </ClearBtn>
       )}
-      <SearchButton onClick={displayMovies}>
+      <SearchButton data-test="search-btn" onClick={displayMovies}>
         <SearchIcon fill={iconColor} />
       </SearchButton>
       {isElasticSearchModalOpened && <ElasticSearch moviesData={moviesByTitle} isLoading={isFetching} />}

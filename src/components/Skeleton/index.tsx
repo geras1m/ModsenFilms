@@ -7,7 +7,7 @@ import {
 
 export const Skeleton = () => {
   return (
-    <SkeletonContainer>
+    <SkeletonContainer data-test="skeletons">
       <SkeletonElement radius={"0"} width={"100%"} height={"183px"} />
       <SkeletonInformation>
         <SkeletonElement radius={"50%"} width={"36px"} height={"36px"} />

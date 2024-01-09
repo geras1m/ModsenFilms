@@ -21,7 +21,7 @@ export const baseTheme: IBaseTheme = {
   orange: "#F86F03FF",
   black: "#000000FF",
   white: "#FFFFFFFF",
-  lightGenre: "#00000019",
+  lightGenre: "rgba(0,0,0,0.1)",
   darkGenre: "#6767679E",
   bgHover: "#969696",
   borderColor: "#C4C4C4FF",

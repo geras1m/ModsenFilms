@@ -12,8 +12,6 @@ import { VideoModal } from "@components/VideoModal";
 export const App: FC = () => {
   const { theme } = useAppSelector((store) => store.app);
 
-  //TODO посмотреть ререндеры и если что обернуть в мемо их
-
   return (
     <ThemeProvider theme={theme === ThemeValue.light ? lightTheme : darkTheme}>
       <GlobalStyles />

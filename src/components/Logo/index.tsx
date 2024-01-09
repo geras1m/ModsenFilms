@@ -22,7 +22,7 @@ export const Logo: FC = () => {
   };
 
   return (
-    <LogoContainer onClick={setDefaultSetting}>
+    <LogoContainer data-test="logo" onClick={setDefaultSetting}>
       <LogoIcon />
       <LogoText>ModsenFilms</LogoText>
     </LogoContainer>

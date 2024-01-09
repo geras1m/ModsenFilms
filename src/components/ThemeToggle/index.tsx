@@ -13,8 +13,8 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <ToggleWrapper onClick={switchTheme}>
-      <Toggle theme={theme} />
+    <ToggleWrapper data-test="toggle" onClick={switchTheme}>
+      <Toggle data-test="toggle-element" theme={theme} />
     </ToggleWrapper>
   );
 };

@@ -66,7 +66,7 @@ export const MoviesList = () => {
   return (
     <MoviesListBox>
       <MoviesListContainer>
-        <MovieListContent>
+        <MovieListContent data-test="movies-wrapper">
           {movies.length !== 0 && movieCards}
           {isLoading && skeletons}
         </MovieListContent>

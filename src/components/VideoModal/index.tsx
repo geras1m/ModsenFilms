@@ -29,7 +29,7 @@ export const VideoModal = () => {
 
   return (
     isModalOpened && (
-      <VideoModalBox onClick={closeModal}>
+      <VideoModalBox data-test="video-modal" onClick={closeModal}>
         <VideoContainer>
           {isFetching && <Spinner />}
           {!isFetching && youtubeKey && <Video src={baseYoutubeUrl + youtubeKey + youtubeParams} />}
