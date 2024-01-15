@@ -2,8 +2,3 @@
 dist
 public
 node_modules
-constants
-config
-webpack.config.js
-cypress.config.js
-.prettierignore

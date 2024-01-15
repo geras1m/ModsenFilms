@@ -1,7 +1,4 @@
-# Ignore artifacts:
-build
-coverage
-.eslintrc.json
-.eslintignore
-.gitignore
+*.json
+dist
+public
 node_modules
