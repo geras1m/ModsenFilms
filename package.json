@@ -2,16 +2,19 @@
   "name": "modsen-films",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://github.com/geras1m/ModsenFilms#readme",
+  "homepage": "https://geras1m.github.io/ModsenFilms/",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
     "eslint-fix": "eslint --fix ./src --ext .ts,.tsx",
     "test:cypress": "start-server-and-test start http://localhost:3000 cypress",
     "cypress": "cypress open",
-    "test:jest": "jest"
+    "test:jest": "jest",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "dependencies": {
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.0.4",
