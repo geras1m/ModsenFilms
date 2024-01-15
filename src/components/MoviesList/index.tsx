@@ -4,9 +4,9 @@ import { setIsVideoModalOpen } from "@store/slices/appSlice";
 import { useFindMoviesByTitleQuery, useGetMoviesQuery } from "@store/api/movieApi";
 import { setMovies, setVideoId } from "@store/slices/movieSlice";
 import { useAppDispatch, useAppSelector } from "@hooks/reduxHooks";
+import { moviesPerPage } from "@constants/constants";
 import { Skeleton } from "@components/Skeleton";
 import { ShowMoreBtn } from "@components/ShowMoreBtn";
-import { moviesPerPage } from "@constants/constants";
 import { MovieCard } from "@components/MovieCard";
 import {
   MovieListContent,
@@ -66,7 +66,7 @@ export const MoviesList = () => {
   return (
     <MoviesListBox>
       <MoviesListContainer>
-        <MovieListContent data-test="movies-wrapper">
+        <MovieListContent data-testid="movies-wrapper">
           {movies.length !== 0 && movieCards}
           {isLoading && skeletons}
         </MovieListContent>

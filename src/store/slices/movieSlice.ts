@@ -5,7 +5,7 @@ interface IMovieState {
   movies: IMovie[] | [];
   page: number;
   videoId: number;
-  genreId: string;
+  genreId: string | null;
   displayNow: DisplayNowType;
   searchTitle: string;
 }
@@ -32,7 +32,7 @@ export const appSlice = createSlice({
     setVideoId: (state, action: PayloadAction<number>) => {
       state.videoId = action.payload;
     },
-    setGenreId: (state, action: PayloadAction<string>) => {
+    setGenreId: (state, action: PayloadAction<string | null>) => {
       state.genreId = action.payload;
     },
     clearMovies: (state) => {

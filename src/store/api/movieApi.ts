@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IMovieResponse, IVideoResponse } from "@app-types/types";
-import { languageUS } from "@root/constants/constants";
+import { languageUS } from "@constants/constants";
 import * as process from "process";
 
 const APP_AUTH_KEY = process.env.APP_AUTH_KEY;
@@ -17,7 +17,7 @@ export const movieApi = createApi({
     },
   }),
   endpoints: (builder) => ({
-    getMovies: builder.query<IMovieResponse, { page: number; genre?: string }>({
+    getMovies: builder.query<IMovieResponse, { page: number; genre?: string | null }>({
       query: ({ page, genre = "" }) => ({
         url: "/discover/movie",
         method: "GET",

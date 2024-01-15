@@ -133,7 +133,7 @@ export const languageUS: string = "en-US";
 
 export const minimumValueLength: number = 1;
 
-export const withoutGenre = "Without genre";
+export const withoutGenre = null;
 
 export const NavList: INavList[] = [
   {

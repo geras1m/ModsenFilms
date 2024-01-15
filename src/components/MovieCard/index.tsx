@@ -35,7 +35,7 @@ export const MovieCard: FC<IMovieCardProps> = ({ movieData, onClick }) => {
   const avatarImgUrl = iconPath ? baseImgUrl + ImgSizes.avatar + iconPath : DefaultAvatarImg;
 
   return (
-    <MovieCardContainer data-test="movie-card" onClick={onClick}>
+    <MovieCardContainer data-testid="movie-card" onClick={onClick}>
       <MoviePosterWrapper>
         <MoviePoster src={posterImgUrl} />
       </MoviePosterWrapper>

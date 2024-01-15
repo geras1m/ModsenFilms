@@ -20,13 +20,13 @@ export const FilterBar = () => {
   return (
     <FilterBarBox>
       <FilterBarContainer>
-        <FilterBarBody data-test="filter-bar">
+        <FilterBarBody data-testid="filter-bar">
           {genres.map((genre) => {
             const isSelected =
               (genreId === withoutGenre && genre.genreId === genres[0].genreId) || genreId === genre.genreId;
             return (
               <FilterItem
-                data-test={genre.name}
+                data-testid={genre.name}
                 key={genre.id}
                 selected={isSelected}
                 onClick={() => getMoviesByGenre(genre.genreId as string)}

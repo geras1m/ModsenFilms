@@ -15,7 +15,7 @@ export const ShowMoreBtn = ({ isDisabled }: IShowMoreBtn) => {
   };
 
   return (
-    <Button data-test="show-more-btn" disabled={isDisabled || movies.length === 0} onClick={loadMoreMovies}>
+    <Button data-testid="show-more-btn" disabled={isDisabled || movies.length === 0} onClick={loadMoreMovies}>
       Show More
     </Button>
   );
