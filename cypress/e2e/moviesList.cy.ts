@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Theme toggle", () => {
+describe("Movies list module", () => {
   beforeEach(() => {
     cy.visit("/");
   });

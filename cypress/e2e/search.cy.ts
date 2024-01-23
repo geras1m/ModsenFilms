@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 describe("Search module", () => {
   beforeEach(() => {
     cy.visit("/");
@@ -32,13 +33,13 @@ describe("Search module", () => {
     cy.get("[data-testid=search-input]").as("input");
 
     cy.get("@input").click();
-    cy.get("@input").type("Matrix");
-    cy.get("@input").should("have.value", "Matrix");
+    cy.get("@input").type("Ma");
+    cy.get("@input").should("have.value", "Ma");
 
     cy.get("[data-testid=elastic-search]").should("be.visible");
   });
 
-  it("should close the elastic search and clear the input after clicking the button", () => {
+  it("should close the elastic search and clear the input after clicking the search button", () => {
     cy.get("[data-testid=search-input]").as("input");
 
     cy.get("@input").click();

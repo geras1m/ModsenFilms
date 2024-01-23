@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Theme toggle", () => {
+describe("Filter bar module", () => {
   beforeEach(() => {
     cy.visit("/");
   });
