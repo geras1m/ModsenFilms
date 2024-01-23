@@ -9,7 +9,7 @@ import { ClosesModalBtn, Text, Video, VideoContainer, VideoModalBox } from "@com
 import { Spinner } from "@components/Spinner";
 
 export const VideoModal = () => {
-  const [youtubeKey, setYoutubeSrc] = useState<string | undefined>("");
+  const [youtubeKey, setYoutubeSrc] = useState<string | null>("");
   const { videoId } = useAppSelector((store) => store.movie);
   const { isModalOpened } = useAppSelector((store) => store.app);
   const { data, isFetching } = useGetVideoQuery({ videoId }, { skip: !videoId });
